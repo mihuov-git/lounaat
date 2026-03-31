@@ -127,6 +127,28 @@
       padding: 18px 20px 22px;
     }
 
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+    }
+
+    .price-label {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .price-value {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
     .menu-list {
       margin: 0;
       padding-left: 18px;
@@ -308,6 +330,7 @@
         key: "grillIt",
         name: "Grill it! Marina",
         subtitle: "Raflaamo",
+        price: "14,90 €",
         url: "https://www.raflaamo.fi/fi/ravintola/turku/grill-it-marina-turku/menu/lounas",
         parser: parseRaflaamo
       },
@@ -315,6 +338,7 @@
         key: "viidesNayttamo",
         name: "Viides Näyttämö",
         subtitle: "Kulttuuriranta",
+        price: "13,70 €",
         url: "https://www.viidesnayttamo.fi/?page_id=73",
         parser: parseViidesNayttamo
       },
@@ -322,6 +346,7 @@
         key: "aitiopaikka",
         name: "Aitiopaikka",
         subtitle: "Fresco Ravintolat",
+        price: "13,50 €",
         url: "https://www.frescoravintolat.fi/lounas/aitiopaikan-lounaslista/",
         parser: parseAitiopaikka
       }
@@ -438,6 +463,12 @@
             <div class="status ${statusClass}">${statusText}</div>
           </div>
           <div class="card-body">
+            <div class="price-row">
+              <div>
+                <div class="price-label">Lounaan hinta</div>
+                <div class="price-value">${escapeHtml(result.price || "-")}</div>
+              </div>
+            </div>
             ${items}
             <div class="note">
               <div><strong>Päivä:</strong> ${escapeHtml(todayName)}</div>
